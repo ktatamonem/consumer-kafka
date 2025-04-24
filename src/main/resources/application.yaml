@@ -1,0 +1,13 @@
+server:
+  port: 9090
+consumer:
+  kafka-props:
+    bootstrap-servers: localhost:9092
+  event-hub-props:
+    bootstrap-servers: mkeventhub.servicebus.windows.net:9093
+    security-protocol: SASL_SSL
+    sasl-mechanism: PLAIN
+    sasl-jaas-config: >
+      org.apache.kafka.common.security.plain.PlainLoginModule required
+      username="$ConnectionString"
+      password="Endpoint=sb://mkeventhub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=btZwmjLrKwTWuc2GS59hHAGpS80biZIuO+AEhFZs0kM=";
